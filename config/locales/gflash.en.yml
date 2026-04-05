@@ -1,0 +1,28 @@
+en:
+  gflash:
+    #
+    # These are the translations for the different titles.
+    #
+    titles:
+      notice: "Notice"
+      success: "Success"
+      warning: "Warning"
+      error: "Error"
+      progress: "Progress"
+    #
+    # Add gflash messages for controller actions:
+    sessions:
+      create:
+        success: "Logged in!"
+        error: "Invalid email or password"
+      destroy:
+        notice: "Logged out"
+    users:
+      create:
+        success: "Signed up!"
+      update:
+        success: "User was successfully updated."
+    #
+    # Inside controller: 
+    # gflash :notice, :error
+    #

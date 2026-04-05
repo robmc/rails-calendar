@@ -1,0 +1,1 @@
+worker:  bundle exec rake jobs:work -n 5

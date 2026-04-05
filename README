@@ -1,0 +1,25 @@
+Resources:
+
+Authentication - http://railscasts.com/episodes/250-authentication-from-scratch
+Displaying events for an individual user - https://github.com/elevation/event_calendar/wiki/Display-events-for-an-individual-user
+Gem event_calendar - https://github.com/elevation/event_calendar
+Remember me & reset password - http://railscasts.com/episodes/274-remember-me-reset-password
+Search, sort, & paginate - http://railscasts.com/episodes/37-simple-search-form
+                           http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
+Modals - http://twitter.github.com/bootstrap/javascript.html#modals
+Multiple File Attachments in Rails 3 - http://emersonlackey.com/screencasts/rails-3-with-paperclip.mov
+									   http://www.emersonlackey.com/article/paperclip-with-rails-3
+Favicon - http://findicons.com/icon/446275/calendar?id=448645
+Nested models for attachments - http://railscasts.com/episodes/196-nested-model-form-revised
+								http://railscasts.com/episodes/196-nested-model-form-part-1
+								http://railscasts.com/episodes/197-nested-model-form-part-2
+JS Datepicker - http://code.google.com/p/calendardateselect/
+Reporting - Querying date range: http://stackoverflow.com/questions/2716886/rails-trying-to-query-from-a-date-range-everything-from-today
+			Report PDFs: http://railscasts.com/episodes/153-pdfs-with-prawn-revised?autoplay=true
+			http://stackoverflow.com/questions/15579197/querying-a-date-range-in-rails-3-2-is-not-working
+Recurring Events - https://github.com/ArturG/Recurring-events
+Sending Emails as Delayed Jobs - http://railscasts.com/episodes/171-delayed-job-revised
+Setting up Time Zones - http://railscasts.com/episodes/106-time-zones-revised
+Timeline - http://timeline.verite.co/
+		   https://github.com/VeriteCo/TimelineJS
+Notebook CSS - https://coderwall.com/p/fw_b4q
