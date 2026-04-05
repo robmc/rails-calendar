@@ -1,0 +1,90 @@
+<%= form_for @event, :html => { :multipart => true } do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => "40", :rows => "10" %>
+  </div>
+  <div class="field">
+  	<%= f.label :all_day, "Is this an all-day event?" %><br />
+  	<%= f.check_box :all_day %>
+  </div>
+  <div class="field">
+    <%= f.label :start_at %><br />
+    <%= text_field :event, :start_at, :value => (@event.start_at.blank? ? '' : @event.start_at.strftime("%B %d, %Y %I:%M %p")), :readonly => true %>
+  </div>
+  <div class="field">
+    <%= f.label :end_at %><br />
+    <%= text_field :event, :end_at, :value => (@event.end_at.blank? ? '' : @event.end_at.strftime("%B %d, %Y %I:%M %p")), :readonly => true %>
+  </div>
+  <div class="field">
+    <%= f.label :periodicity, "Repeat:" %><br />
+    <%= f.select :periodicity, [["Event only occurs once",0],["Every year",1],["Every month",2],["Every week",3],["Every day",4]] %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency, "The number of repetitions of the event:" %><br />
+    <%= f.text_field :frequency %>
+  </div>
+  <div id="reminders">
+  	<strong><u><%= "Send email reminder:" %></u></strong><br />
+  	<%= f.label "At time of event", :class => "reminder_labels" %>
+  	<%= f.check_box :reminder_at_event_start, :class => "reminder_check" %><br />
+  	
+  	<%= f.label "15 minutes before event", :class => "reminder_labels" %>
+  	<%= f.check_box :reminder_15_mins_before, :class => "reminder_check" %><br />
+  	
+  	<%= f.label "30 minutes before event", :class => "reminder_labels" %>
+  	<%= f.check_box :reminder_30_mins_before, :class => "reminder_check" %><br />
+  	
+  	<%= f.label "1 hour before event", :class => "reminder_labels" %>
+  	<%= f.check_box :reminder_1_hr_before, :class => "reminder_check" %><br />
+  	
+  	<%= f.label "1 day before event", :class => "reminder_labels" %>
+  	<%= f.check_box :reminder_1_day_before, :class => "reminder_check" %><br />
+  </div>
+  
+  <div id="media">
+    <%= f.label :media %><br />
+    <%= f.text_field :media %> 
+  </div>
+  
+  <div id="notebook" class="paper">
+  	<h2>To-do:</h2>
+	<%= f.fields_for :todos do |builder| %>
+		<%= render 'todo_fields', f: builder %>
+	<% end %>
+	<%= link_to_add_fields "Add Todo", f, :todos %>
+  </div>
+
+  <div id="add_attachments">
+  	<%= f.fields_for :attachments do |builder| %>
+	  	<% if builder.object.new_record? %>
+	  		<%= builder.label :attachment, "Add Attachment: (5 Max)" %><br />
+	  		<%= builder.file_field :attachment %>
+	  	<% end %>
+  	<% end %>
+  </div>
+  <div id="show_attachments">
+  	<%= "Attachments:" %>
+  	<%= f.fields_for :attachments do |builder| %>
+		<%= render 'show_attachment_fields', f: builder %>
+  	<% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

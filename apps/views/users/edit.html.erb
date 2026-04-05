@@ -1,0 +1,29 @@
+<h1>Editing Profile</h1>
+
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+	 	<div class="error_messages">
+	 		<h2>Form is invalid</h2>
+	 		<ul>
+	 		<% for message in @user.errors.full_messages %>
+	 		<li><%= message %></li>
+	 		<% end %>
+	 		</ul>
+	 	</div>	
+	<% end %>	
+	<p>
+		<%= f.label :time_zone %><br />
+		<%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+	</p>
+	<p>
+		<%= f.label :password, "New Password:" %><br />
+		<%= f.password_field :password %>
+	</p>
+	<p>
+		<%= f.label :password_confirmation, "Confirm New Password:" %><br />
+		<%= f.password_field :password_confirmation %>
+	</p>
+	<p class="button"><%= f.submit "Save Changes" %></p>
+<% end %>
+
+<%= link_to 'Back', calendar_path %>

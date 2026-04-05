@@ -1,0 +1,21 @@
+<h1>Calendar</h1>
+
+<span id="upcoming_events">
+		Upcoming Events:<br />
+		<% @upcoming_events.each do |event| %>
+			<ul style="margin: 0;">
+					<li><%= event.name %><br /></li>
+		    </ul>
+		<% end %>
+</span>
+
+<%= link_to 'New Event', new_event_path %> | 
+<%= link_to "Manage Events", events_path %> | 
+<%= link_to "Reports", reports_path %> | 
+<%= link_to "Timeline", timeline_path %>
+
+<%= raw(event_calendar) %>
+
+<div id="modal">
+  
+</div>

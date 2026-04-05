@@ -1,0 +1,46 @@
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.description %>
+</p>
+
+<p>
+  <b>Starts:</b>
+  <%= @event.start_at.strftime("%m/%d/%Y %I:%M %p") %>
+</p>
+
+<p>
+  <b>Ends:</b>
+  <%= @event.end_at.strftime("%m/%d/%Y %I:%M %p") %>
+</p>
+
+<p>
+  <b>Media:</b>
+  <%= @event.media %>
+</p>
+
+<% if @event.todos.count > 0 %>
+	<b>To-do:</b>
+	<% for todo in @event.todos %>
+		<ul>
+			<li>
+				<strong><%= todo.title %></strong><br />
+			</li>
+		</ul>
+	<% end %>
+<% end %>
+
+<p>
+	<% if @event.attachments.count > 0 %>
+		<b>Attachments:</b>
+		<% for attachment in @event.attachments %>
+			<ul>
+				<li><%= link_to attachment.attachment_file_name, attachment.attachment.url(:original, false), :target => "_blank" %></li>
+			</ul>
+		<% end %>
+	<% end %>
+</p>

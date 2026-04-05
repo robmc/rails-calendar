@@ -1,0 +1,36 @@
+<h1>Reports</h1>
+
+<%= form_tag reports_path, :method => 'get' do %>
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+	<p>
+	  <div class="field">
+	    <%= label :report_start, "", "Report Start Date:" %><br />
+	    <%= text_field :event, :report_start, :readonly => true %>
+	  </div>
+	  <br />
+	  <div class="field">
+	    <%= label :report_end, "", "Report End Date:" %><br />
+	    <%= text_field :event, :report_end, :readonly => true %>
+	  </div>
+	  <br />
+	  <%= submit_tag "Generate Report", :start_at => nil %> | 
+	  <%= link_to "<button>Show All Events</button>".html_safe, reports_path, :method => "get" %>
+	</p>
+	</p>
+<% end %>
+
+<%= render :partial => 'reporting_event_index' %>
+
+<br />
+
+<%= will_paginate @events %>
+
+<br />
+
+<%= link_to "<button>Printable Event Report (PDF)</button>".html_safe, reports_path(params.merge(format: "pdf")), :method => "get"%>
+
+<br />
+<br />
+
+<%= link_to 'Back to Calendar', calendar_path %>

@@ -1,0 +1,9 @@
+<% unless f.object.new_record? %>
+	<ul>
+		<li class="fields">
+			<%= link_to f.object.attachment_file_name, f.object.attachment.url(:original) %> | 
+			<%= f.hidden_field :_destroy %>
+			<%= link_to_function "remove", "remove_fields(this)", :onclick => "confirmDelete()" %>
+		</li>
+	</ul>
+<% end %>

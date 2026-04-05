@@ -1,0 +1,24 @@
+<table class="events_table">
+  <tr>
+    <th><%= sortable "name" %></th>
+	<th><%= sortable "start_at", "Start At" %></th>
+	<th><%= sortable "end_at", "End At" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+  	<% if event.name.length > 40 %>
+  		<td><%= event.name.truncate(40) %><br /></td>
+  	<% else %>
+  		<td><%= event.name %><br /></td>
+  	<% end %>
+    <td><%= event.start_at.strftime("%B %d, %Y %I:%M %p") %></td>
+    <td><%= event.end_at.strftime("%B %d, %Y %I:%M %p") %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+  </tr>
+<% end %>
+</table>

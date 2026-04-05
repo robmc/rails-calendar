@@ -1,0 +1,31 @@
+<div class="modal hide fade" id="thisModal">
+	<div class="modal-header">
+		<h3><%= @event.name %></h3>
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	</div>
+	<div class="modal-body">
+		<p>
+			<b>Starts:</b>
+			<%= @event.start_at.strftime("%m/%d/%Y %I:%M %p") %>
+		</p>	
+		<p>
+		  <b>Ends:</b>
+		  <%= @event.end_at.strftime("%m/%d/%Y %I:%M %p") %>
+		</p>
+		<p>
+			<% if @event.attachments.count > 0 %>
+				<b>Attachments:</b>
+				<% for attachment in @event.attachments %>
+					<ul>
+						<li><%= link_to attachment.attachment_file_name, attachment.attachment.url(:original, false), :target => "_blank" %></li>
+					</ul>
+				<% end %>
+			<% end %>
+		</p>
+	</div>
+	<div class="modal-footer">
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    </div>
+	</div>
+</div> 

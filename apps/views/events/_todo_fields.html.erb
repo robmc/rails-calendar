@@ -1,0 +1,11 @@
+<div id="todo_wrapper">
+	<fieldset>
+		<ul>
+			<li>
+				<%= f.text_field :title, :id => "todo_text_field" %>
+				<%= f.hidden_field :_destroy %>
+				<%= link_to "remove", '#', class: "remove_fields" %>
+			</li>
+		</ul>
+	</fieldset>
+</div>
