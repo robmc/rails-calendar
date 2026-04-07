@@ -1,0 +1,30 @@
+# Logs
+/log/*
+!/log/.keep
+
+# Temp files
+/tmp/*
+!/tmp/.keep
+
+# SQLite databases
+/db/*.sqlite3
+
+# Bundler
+/.bundle
+/vendor/bundle
+
+# Precompiled assets
+/public/assets
+
+# Uploaded files (paperclip)
+/public/system
+
+# Environment / secrets
+.env
+
+# OS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
